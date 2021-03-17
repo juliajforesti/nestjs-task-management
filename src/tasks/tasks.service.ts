@@ -28,6 +28,19 @@ export class TasksService {
     return task;
   }
 
+  // update task by id
+  // updateTask(id: string, createTaskDto: CreateTaskDto): Task {
+  //   const {title, description} = createTaskDto
+  //   this.tasks = this.tasks.map(task => task.id === id ? {...task, title, description} : task)
+  //   return this.tasks.find(task => task.id === id)
+  // }
+
+  updateTaskStatus(id: string, status: TaskStatus): Task{
+    const task = this.getTaskById(id)
+    task.status = status
+    return task
+  }
+
   deleteTask(id: string): void{
     this.tasks = this.tasks.filter(task => task.id !== id)
   }
